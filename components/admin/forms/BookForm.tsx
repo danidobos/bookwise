@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import FileUpload from "@/components/FileUpload";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -58,7 +59,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   required
                   placeholder="Book title"
                   {...field}
-                  className="book-form_input"
+                  className="book-form_input bg-light-600"
                 />
               </FormControl>
               <FormMessage />
@@ -79,7 +80,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   required
                   placeholder="Book author"
                   {...field}
-                  className="book-form_input"
+                  className="book-form_input bg-light-600"
                 />
               </FormControl>
               <FormMessage />
@@ -100,7 +101,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   required
                   placeholder="Book genre"
                   {...field}
-                  className="book-form_input"
+                  className="book-form_input bg-light-600"
                 />
               </FormControl>
               <FormMessage />
@@ -124,7 +125,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   required
                   placeholder="Book rating"
                   {...field}
-                  className="book-form_input"
+                  className="book-form_input bg-light-600"
                 />
               </FormControl>
               <FormMessage />
@@ -148,7 +149,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   required
                   placeholder="Total copies"
                   {...field}
-                  className="book-form_input"
+                  className="book-form_input bg-light-600"
                 />
               </FormControl>
               <FormMessage />
@@ -164,7 +165,16 @@ const BookForm = ({ type, ...book }: Props) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Image
               </FormLabel>
-              <FormControl>{/* File upload */}</FormControl>
+              <FormControl>
+                <FileUpload
+                  type="image"
+                  accept="image/*"
+                  placeholder="Upload a book cover"
+                  folder="books/covers"
+                  variant="light"
+                  onFileChange={field.onChange}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
@@ -197,7 +207,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   placeholder="Book description"
                   {...field}
                   rows={10}
-                  className="book-form_input"
+                  className="book-form_input bg-light-600"
                 ></Textarea>
               </FormControl>
               <FormMessage />
@@ -213,7 +223,16 @@ const BookForm = ({ type, ...book }: Props) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Trailer
               </FormLabel>
-              <FormControl>{/* File upload */}</FormControl>
+              <FormControl>
+                <FileUpload
+                  type="video"
+                  accept="video/*"
+                  placeholder="Upload a book trailer"
+                  folder="books/videos"
+                  variant="light"
+                  onFileChange={field.onChange}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
@@ -232,7 +251,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   placeholder="Book summary"
                   {...field}
                   rows={5}
-                  className="book-form_input"
+                  className="book-form_input bg-light-600"
                 ></Textarea>
               </FormControl>
               <FormMessage />
