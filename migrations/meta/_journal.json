@@ -22,6 +22,13 @@
       "when": 1747138896819,
       "tag": "0002_thin_red_shift",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1747140810885,
+      "tag": "0003_funny_pandemic",
+      "breakpoints": true
     }
   ]
 }
