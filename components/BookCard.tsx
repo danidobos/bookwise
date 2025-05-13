@@ -9,7 +9,7 @@ const BookCard = ({
   title,
   genre,
   coverColor,
-  isLoanedBook,
+  isLoanedBook = false,
   coverUrl,
 }: Book) => {
   return (
