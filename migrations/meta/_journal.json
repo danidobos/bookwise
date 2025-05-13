@@ -8,6 +8,13 @@
       "when": 1746542713331,
       "tag": "0000_lush_thaddeus_ross",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1747136608567,
+      "tag": "0001_hot_roland_deschain",
+      "breakpoints": true
     }
   ]
 }
