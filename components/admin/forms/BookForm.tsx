@@ -17,6 +17,7 @@ import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/FileUpload";
+import ColorPicker from "../ColorPicker";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -41,7 +42,9 @@ const BookForm = ({ type, ...book }: Props) => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof bookSchema>) => {};
+  const onSubmit = async (values: z.infer<typeof bookSchema>) => {
+    console.log(values);
+  };
 
   return (
     <Form {...form}>
@@ -173,6 +176,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   folder="books/covers"
                   variant="light"
                   onFileChange={field.onChange}
+                  value={field.value}
                 />
               </FormControl>
               <FormMessage />
@@ -188,7 +192,12 @@ const BookForm = ({ type, ...book }: Props) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Primary Color
               </FormLabel>
-              <FormControl>{/* Color picker */}</FormControl>
+              <FormControl>
+                <ColorPicker
+                  onPickerChange={field.onChange}
+                  value={field.value}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
@@ -231,6 +240,7 @@ const BookForm = ({ type, ...book }: Props) => {
                   folder="books/videos"
                   variant="light"
                   onFileChange={field.onChange}
+                  value={field.value}
                 />
               </FormControl>
               <FormMessage />
